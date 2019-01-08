@@ -42,6 +42,12 @@ describe('memory database', () => {
   });
 
   it('finds an object by id and updates it', () => {
+    const cat = { name: 'felix' };
+    const createdCat = db.create(cat);
+    const id = createdCat._id;
+    const changedCat = { name: 'garfield' };
+    const updatedCat = db.findByIdAndUpdate(id, changedCat);
+    expect(updatedCat.name).toEqual(changedCat.name);
   
   });
 });
