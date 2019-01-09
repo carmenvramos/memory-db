@@ -56,6 +56,6 @@ describe('memory database', () => {
     const createdCat = db.create(cat);
     const id = createdCat._id;
     const deletedCat = db.findByIdAndDelete(id);
-    expect(deletedCat).toEqual(`${id} is deleted`);
+    expect(deletedCat).toEqual({ deleted: 1 });
   });
 });
