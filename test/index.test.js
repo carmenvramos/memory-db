@@ -58,4 +58,9 @@ describe('memory database', () => {
     const deletedCat = db.findByIdAndDelete(id);
     expect(deletedCat).toEqual({ deleted: 1 });
   });
+
+  it('deletes all keys in the database', () => {
+    const results = db.drop();
+    expect(results).toBe({});
+  });
 });
