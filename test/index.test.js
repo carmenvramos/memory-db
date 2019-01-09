@@ -46,6 +46,13 @@ describe('memory database', () => {
     expect(updatedCat.name).toEqual(changedCat.name);
   });
 
+  it('throws an error if no object exits for the id', () => {
+    const cat = { name: 'felix' };
+    expect(() => {
+      db.findByIdAndUpdate('123', cat);    
+    }).toThrowError('No object with _id 123');
+  });
+
   it('finds an object by Id and deletes it', () => {
     const cat = { name: 'felix' };
     const createdCat = db.create(cat);
