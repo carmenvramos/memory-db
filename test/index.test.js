@@ -50,4 +50,12 @@ describe('memory database', () => {
     expect(updatedCat.name).toEqual(changedCat.name);
   
   });
+
+  it('finds an object by Id and deletes it', () => {
+    const cat = { name: 'felix' };
+    const createdCat = db.create(cat);
+    const id = createdCat._id;
+    const deletedCat = db.findByIdAndDelete(id);
+    expect(deletedCat).toEqual(`${id} is deleted`);
+  });
 });
