@@ -61,6 +61,13 @@ describe('memory database', () => {
     expect(deletedCat).toEqual({ deleted: 1 });
   });
 
+  it('throws an error if no object exits for the id', () => {
+    const cat = { name: 'garfield' };
+    expect(() => {
+      db.findByIdAndUpdate('321', cat);    
+    }).toThrowError('No object with _id 321');
+  });
+
   it('deletes all keys in the database', () => {
     const results = db.drop();
     expect(results).toEqual({});
