@@ -6,13 +6,10 @@ describe('memory database', () => {
     db = new MemoryDatabase();   
   });
 
-  // store = { { name: 'fluffy'} }
-
   it('creates an object in the database', () => {
     const cat = { name: 'fluffy' };
     const createdCat = db.create(cat);
     expect(createdCat.name).toEqual('fluffy');
-
   });
 
   it('can find an object by id', () => {
@@ -38,7 +35,6 @@ describe('memory database', () => {
     const createdCat2 = db.create(cat2);
     const allCats = db.find();
     expect(allCats).toEqual[createdCat, createdCat2];
-
   });
 
   it('finds an object by id and updates it', () => {
@@ -48,7 +44,6 @@ describe('memory database', () => {
     const changedCat = { name: 'garfield' };
     const updatedCat = db.findByIdAndUpdate(id, changedCat);
     expect(updatedCat.name).toEqual(changedCat.name);
-  
   });
 
   it('finds an object by Id and deletes it', () => {
@@ -61,6 +56,6 @@ describe('memory database', () => {
 
   it('deletes all keys in the database', () => {
     const results = db.drop();
-    expect(results).toBe({});
+    expect(results).toEqual({});
   });
 });
