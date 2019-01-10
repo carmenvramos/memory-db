@@ -14,12 +14,17 @@ const createCat = name => ({
   speak() {
     console.log('Meow, my name is ' + `${this.name}`);
   }
-})
+});
 
-const felix = createCat ('Felix');
-const whiskers = createCat ('whiskers');
-fluffy.speak();
-whiskers.speak();
+
+// using Constructor function
+function Cat(name) {
+  this.name = name;
+}
+Cat.prototype.speak = function() {
+  console.log(`Meow my name is ${this.name}`);
+};
+
 
 // using Class
 class CatClass {
@@ -31,13 +36,16 @@ class CatClass {
   }
 }
 
-const myCatFelix = new CatClass('Felix');
+const felix = createCat ('Felix');
+const whiskers = createCat ('whiskers');
+felix.speak();
 whiskers.speak();
 
+const bingo = new Cat('bingo');
+bingo.speak();
 
-// using Constructor function
-function Cat(name) {
-  this.name = name;
-}
-Cat.prototype.speak();
+// eslint-disable-next-line no-unused-vars
+const myCatFelix = new CatClass('Felix');
+
+
 
