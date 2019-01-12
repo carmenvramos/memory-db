@@ -34,7 +34,7 @@ describe('memory database', () => {
     const createdCat = db.create(cat);
     const createdCat2 = db.create(cat2);
     const allCats = db.find();
-    expect(allCats).toEqual[createdCat, createdCat2];
+    expect(allCats).toEqual([createdCat, createdCat2]);
   });
 
   it('finds an object by id and updates it', () => {
